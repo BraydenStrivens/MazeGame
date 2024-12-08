@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maze Solving Game</title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="./styles/other.css" />
+    <link rel="stylesheet" href="./styles/settings.css" />
+    <link rel="stylesheet" href="./styles/animated_background.css" />
+    <link rel="stylesheet" href="./styles/main_menu.css" />
+    <link rel="stylesheet" href="./styles/mode_select.css" />
+    <link rel="stylesheet" href="./styles/play.css" />
+    <link rel="stylesheet" href="./styles/pause.css" />
+    <link rel="stylesheet" href="./styles/customize.css" />
+    <link rel="stylesheet" href="./styles/game_over.css" />
+
+  </head>
+  <body>
+
+    <audio controls autoplay loop id="backgroundMusic">
+      <source src="./assets/audio/backgroundMusic/the_ano_interval.mp3" type="audio/ogg">
+    </audio>
+
+    <div id="animatedBackground">
+
+      <div id="mainMenu" class="main-menu">
+        <div class="menu-header">
+          <p class="title">Maze Game!</p>
+        </div>
+
+        <div class="menu-page">
+          <div class="menu">
+            <div class="menu-button-group">
+
+              <button id="playButton" class="menu-button">Play</button>
+              <button id="customizeButton" class="menu-button">Customize</button>
+              <button id="settingsButton" class="menu-button">Settings</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="selectMode" class="select-mode">
+
+          <div class="select-header">
+              <p id="selectBackArrow" class="select-back-arrow">&#x25c0;</p>
+          </div>
+
+          <div class="difficulty-select">
+              <p class="select-text">Difficulty</p>
+
+              <div class="difficulty-button-group">
+                  <button id="easyButton" class="difficulty-button">
+                      Easy
+                  </button>
+                  <button id="mediumButton" class="difficulty-button">
+                      Medium
+                  </button>
+                  <button id="hardButton" class="difficulty-button">
+                      Hard
+                  </button>
+                  <button id="impossibleButton" class="difficulty-button">
+                      Impossible
+                  </button>
+              </div>
+
+          </div>
+
+          <div id="modeSelect" class="game-mode">
+              <div class="game-mode-select">
+
+                  <p class="select-text">Game Mode</p>
+
+                  <button id="defaultMode" class="game-mode-button">
+                      Default
+                  </button>
+
+                  <button id="memoryMode" class="game-mode-button">
+                    Memory
+                  </button>
+
+                  <button id="franticMode" class="game-mode-button">
+                      Frantic
+                  </button>
+              </div>
+
+              <div class="game-mode-description">
+                  <p class="select-text">Description</p>
+                  <p id=modeDescription class="select-text"></p>
+              </div>
+          </div>
+
+          <div class="go-next">
+              <button id="modePlayButton" class="go-next-button">
+                  Play
+              </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="customizeState" class="customize-state">
+
+        <div class="customize-header">
+          <p id="customizeBackArrow" class="customize-back-arrow">&#x25c0;</p>
+          <p class="customize-title">Customize</p>
+        </div>
+
+        <div class="icon-select">
+          <div class="select-box">
+
+            <label for="player-icon" class="customize-label">Choose Player Icon:</label>
+            <select name="player-icon" class="customize-select" id="playerIconSelect">
+
+              <option value="default">Default</option>
+              <option value="default-red">Default-Red</option>
+              <option value="default-blue">Default-Blue</option>
+              <option value="default-green">Default-Green</option>
+              <option value="warm-rainbow">Warm Rainbow</option>
+              <option value="cool-rainbow">Cool Rainbow</option>
+              <option value="rainbow">Rainbow</option>
+
+            </select>
+
+          </div>
+
+          <div class="preview-box">
+            <img id="iconPreview" src="./assets/images/playerIcons/default-icon.png" alt="">
+          </div>
+
+        </div>
+
+        <div class="maze-color-select">
+          <div class="select-box">
+
+            <label for="player-icon" class="customize-label">Choose Maze Color:</label>
+
+            <select name="player-icon" class="customize-select" id="mazeColorSelect">
+              <option value="white">White</option>
+              <option value="red">Red</option>
+              <option value="blue">Blue</option>
+              <option value="green">Green</option>
+              <option value="yellow">Yellow</option>
+              <option value="orange">Orange</option>
+              <option value="cyan">Cyan</option>
+              <option value="pink">Pink</option>
+              <option value="purple">Purple</option>
+              <option value="mixed">Mixed</option>
+              <option value="mixed-animated">Mixed Animated</option>
+            </select>
+
+          </div>
+
+          <div class="preview-box">
+            <img id="mazeColorPreview" src="./assets/images/previews/white.PNG" alt="">
+          </div>
+
+        </div>
+        <div class="maze-background-color-select">
+          <div class="select-box">
+
+            <label for="player-icon" class="customize-label">Choose Maze Background:</label>
+
+            <select name="player-icon" class="customize-select" id="mazeBackgroundColorSelect">
+              <option value="default">Default</option>
+              <option value="galaxy1">Galaxy 1</option>
+              <option value="galaxy2">Galaxy 2</option>
+              <option value="clouds">Clouds</option>
+              <option value="futuristicCity">Futuristic</option>
+              <option value="retro">Retro Futuristic</option>
+            </select>
+
+          </div>
+
+          <div class="preview-box">
+            <img id="backgroundPreview" src="./assets/images/backgroundImages/default.jfif" alt="">
+          </div>
+        </div>
+
+        <div class="save-box">
+          <button id="customizeSaveButton" class="customize-save-button">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="playState" class="play">
+      <img id="backgroundImage" src="./assets/images/backgroundImages/default.jfif" alt="">
+      <div class="play-header">
+
+        <div class="timer">
+          <p id="timer">0</p>
+        </div>
+
+        <button id="pauseButton" class="play-pause-button">
+          Pause
+        </button>
+      </div>
+
+      <div class="play-page">
+        <canvas id="gameCanvas" class="game-canvas"></canvas>
+      </div>
+    </div>
+
+    <div id="gameOverState" class="game-over">
+      <div class="game-over-header">
+        Game Over!
+      </div>
+
+      <div id="gameOverInfo" class="game-over-info">
+        <p id="gameOverTimer">0 Seconds</p>
+      </div>
+
+      <div class="game-over-button-group">
+        <button id="playAgainButton" class="game-over-button">
+          Play Again
+        </button>
+
+        <button id="gameOverMainMenuButton" class="game-over-button">
+          Main Menu
+        </button>
+      </div>
+    </div>
+
+    <div id="pauseContainer">
+      <div id="pauseGame" class="pause-game">
+        <p id="pauseResumeButton" class="pause-button">
+          Resume
+        </p>
+
+        <p id="pauseRestartButton" class="pause-button">
+          Restart
+        </p>
+
+        <p id="pauseSettingsButton" class="pause-button">
+          Settings
+        </p>
+
+        <p id="pauseQuitButton" class="pause-button">
+          Quit
+        </p>
+      </div>
+    </div>
+
+    <div id="settingsContainer">
+      <div id="settingsFrame" class="settings-frame">
+        <div id="settingsHeader" class="settings-header">
+          <button class="close-settings-button">x</button>
+          <p class="settings-title">Sound Settings</p>
+        </div>
+
+        <div id="masterVolumeContainer" class="volume-slider-container">
+          <p class="volume-header">Master:</p>
+          <!-- <input type="range" min="0" max="100" value="50" class="slider" id="masterVolume" onChange="changeMasterVolume()"> -->
+          <input type="range" min="0" max="100" value="50" class="slider" id="masterVolume">
+          <div id="masterVolumeValue" class="settingsValue">50</div>
+        </div>
+
+        <div id="musicVolumeContainer" class="volume-slider-container">
+          <p class="volume-header">Music:</p>
+          <input type="range" min="0" max="100" value="50" class="slider" id="musicVolume">
+          <div id="musicVolumeValue" class="settingsValue">50</div>
+        </div>
+
+        <div id="gameVolumeContainer" class="volume-slider-container">
+          <p class="volume-header">Game:</p>
+          <input type="range" min="0" max="100" value="50" class="slider" id="gameVolume">
+          <div id="gameVolumeValue" class="settingsValue">50</div>
+        </div>
+
+        <div id="saveSettingsContainer" class="save-settings-container">
+          <button id="saveSettingsButton" class="save-settings-button">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./cell.js"></script>
+    <script type="module" src="./maze.js"></script>
+    <script type="module" src="./game.js"></script>
+    <script type="module" src="./settings.js"></script>
+  </body>
+</html>

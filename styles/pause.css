@@ -1,0 +1,50 @@
+
+
+#pauseGame {
+    display: none;
+    visibility: visible;
+}
+
+#pauseContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pause-game {
+    position: absolute;
+    background-image: linear-gradient(black, rgb(20, 57, 64), black);
+    color: white;
+    border: 3px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top: 15%;
+    width: 20%;
+    height: auto;
+    z-index: 2;
+}
+
+.pause-close-button:hover {
+    opacity: 0.6;
+}
+
+.pause-close-button:active {
+    opacity: 0.3;
+}
+
+.pause-button {
+    position: relative;
+    width: auto;
+    height: auto;
+    font-size: 100px;
+}
+
+.pause-button:hover {
+    opacity: 0.6;
+}
+
+.pause-button:active {
+    opacity: 0.3;
+}

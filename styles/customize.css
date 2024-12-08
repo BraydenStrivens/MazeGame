@@ -1,0 +1,202 @@
+
+#customizeState {
+    display: none;
+    visibility: visible;
+}
+
+.customize-state {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    vertical-align: middle;
+    z-index: 2
+}
+
+.customize-header {
+    border: 3px solid white;
+    position: absolute;
+    display: flex;
+    color: white;
+    top: 0;
+    width: 100%;
+    height: 15%;
+    text-align: center;
+}
+
+.customize-back-arrow {
+    position: relative;
+    left: 100px;
+    font-size: 100px;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    user-select: none;
+}
+
+.customize-back-arrow:hover {
+    opacity: 0.6;
+}
+
+.customize-back-arrow:active {
+    opacity: 0.3;
+}
+
+.customize-title {
+    position: relative;
+    font-family: Arial;
+    font-size: 200px;
+    width: auto;
+    height: auto;
+    margin: auto;
+    text-shadow:
+    5px 5px 5px rgb(205, 198, 58),
+    -5px 5px 5px rgb(212, 73, 73),
+    -5px -5px 5px rgb(68, 194, 56),
+    5px -5px 5px rgb(33, 120, 137);
+}
+
+.icon-select {
+    border: 3px solid white;
+    position: absolute;
+    display:inline-block;
+    color: white;
+    top: 15%;
+    width: 100%;
+    height: 25%;
+}
+
+#iconPreview {
+    position: absolute;
+    display: block;
+    aspect-ratio: 1 / 1;
+    height: 90%;
+    margin: auto;
+}
+
+#mazeColorPreview {
+    border: 3px solid white;
+    position: absolute;
+    display: block;
+    aspect-ratio: 1 / 1;
+    height: 90%;
+    margin: auto;
+}
+
+#backgroundPreview {
+    border: 3px solid white;
+    position: absolute;
+    display: block;
+    aspect-ratio: inherit;
+    height: 90%;
+    margin: auto;
+}
+
+.customize-label {
+    display: inline-block;
+    font-size: 50px;
+    
+}
+
+.customize-select {
+    display: block;
+    border: 3px solid white;
+    background-color: rgb(20, 57, 64);
+    
+    color: white;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-align: center;
+    width: auto;
+    height: 120px;
+    font-size: 50px;
+}
+
+.maze-color-select {
+    border: 3px solid white;
+    color: white;
+    position: absolute;
+    display:inline-block;
+    top: 40%;
+    width: 100%;
+    height: 25%;
+}
+
+.maze-background-color-select {
+    color: white;
+    border: 3px solid white;
+    position: absolute;
+    display:inline-block;
+    top: 65%;
+    width: 100%;
+    height: 25%;
+}
+
+.select-box {
+    border: 3px solid white;
+    background-color: rgb(20, 57, 64);
+    border-radius: 40px;
+    color: white;
+    position: absolute;
+    display: inline-block;
+    top: 3%;
+    bottom: 3%;
+    right: 65%;
+    left: 10%;
+    width: auto;
+    height: 80%;
+    margin: 20px;
+    text-align: center;
+}
+
+.customize-select:hover {
+    filter: brightness(200%);
+}
+
+.preview-box {
+    border: 3px solid white;
+    background-color: rgb(20, 57, 64);
+    border-radius: 40px;
+    position: absolute;
+    top: 3%;
+    bottom: 3%;
+    right: 10%;
+    left: 65%;
+    width: auto;
+    height: 80%;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.save-box {
+    border: 3px solid white;
+    position: absolute;
+    display:inline-block;
+    top: 90%;
+    width: 100%;
+    height: 10%;
+}
+
+.customize-save-button {
+    border: 3px solid white;
+    position: absolute;
+    background-color: rgb(20, 57, 64);
+    color: white;
+    border-radius: 20px;
+    width: 300px;
+    height: 100px;
+    left: 46%;
+    top: 15%;
+    font-size: 50px;
+}
+
+.customize-save-button:hover {
+    filter: brightness(200%);
+}
+
+.customize-save-button:active {
+    filter: brightness(300%);
+}
